@@ -9,25 +9,24 @@ public class Main {
     static boolean isPalindrome(String inputString) {
 
         int i = 0, j = inputString.length() - 1; //i - указатель, который бежит от начала к середине, j - от конца к середине
-        String lowCaseString = inputString.toLowerCase();
 
         while (i < j) {
-            char chI = lowCaseString.charAt(i);
+            char chI = inputString.charAt(i);
 
             while (!Character.isLetter(chI) && i < j) {//двигаем указатель, пока не дойдем до буквы
                 i++;
-                chI = lowCaseString.charAt(i);
+                chI = inputString.charAt(i);
             }
 
-            char chJ = lowCaseString.charAt(j);
+            char chJ = inputString.charAt(j);
 
             while (!Character.isLetter(chJ) && i < j) {
                 j--;
-                chJ = lowCaseString.charAt(j);
+                chJ = inputString.charAt(j);
             }
 
             //System.out.println("Compare: " + chI + " and " + chJ);
-            if (chI != chJ || !Character.isLetter(chI)) {
+            if (Character.toLowerCase(chI) != Character.toLowerCase(chJ) || !Character.isLetter(chI)) {
                 //System.out.println("not palindrome");
                 return false;
             }
